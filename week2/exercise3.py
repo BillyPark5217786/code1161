@@ -7,7 +7,10 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
+    if a_number %(2):   
+        return a_number
+    else: 
+        return a_number == False
 
 
 def fix_it(moves=True, should_move=True):
@@ -21,8 +24,17 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    pass
-
+    if moves:
+        if should_move:
+            return "No Problem"
+        else:
+            return "Duct Tape"
+    else:
+        if should_move:
+            return "WD-40"
+        else:
+            return "No Problem"
+    
 
 def loops_1a():
     """Make 10 stars.
@@ -31,8 +43,11 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    pass
-
+    #return ['*'] * 10
+    a_list = []
+    for a in range(0, 10):
+        a_list.append('*')
+    return a_list
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -43,8 +58,12 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+    a_list = [] 
+    for a in range(number_of_items):
+        a_list.append(symbol)
+    return a_list
 
+        
 
 def loops_2():
     """Make a big square starfield.
@@ -64,8 +83,13 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
-
+    a_list = []
+    for i in range(10):
+        b_list = []
+        for j in range(10):
+            b_list.append('*')
+        a_list.append(b_list)
+    return a_list
 
 def loops_3():
     """Make a rising block of numbers.
@@ -88,7 +112,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    a_list = []
+    for i in range(10):
+        b_list = []
+        for j in range(10):
+            b_list.append(str(i))
+        a_list.append(b_list)
+    return a_list
 
 
 def loops_4():
@@ -108,7 +138,15 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    the_list_that_does_the_thing = []
+    for i in range(10):
+        the_list = []
+        for j in range(10):
+            the_list.append(str(j))
+        the_list_that_does_the_thing.append(the_list)
+    return the_list_that_does_the_thing
+    #I don't know what I've done, I seems to be multiplying by 100 for some reason.
+    #Fixed it, it was an indentaion error. So lucky me.
 
 
 def loops_5():
@@ -133,7 +171,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    column = []
+    for x in range(10):
+        row = []
+        for y in range(5):
+            row.append("(i" + str(x) + ", j" + str(y) + ")",)
+        column.append(row)
+    return column
 
 
 def loops_6():
@@ -156,9 +200,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
-
-
+    list_desec = []
+    for i in range(10):
+        list_desec.append([])
+        for j in range(i+1):
+            list_desec[i].append(str(j))
+    return list_desec
+    
 def loops_7():
     """Make a pyramid.
 
@@ -180,7 +228,16 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    column = []
+    for x in range(5):
+        row = []
+        for y in range(9):
+            if abs(y-4) <= x:
+                row.append("*")
+            else:
+                row.append(" ")
+        column.append(row)
+    return column
 
 
 def lp(some_kind_of_list, exercise_name):
@@ -217,7 +274,7 @@ if __name__ == "__main__":
     print(fix_it(False, True), "fix_it")
     print(fix_it(False, False), "fix_it")
     lp(loops_1a(), "loops_1a")
-    lp(loops_1c(4, "×°×"), "loops_1c")
+    lp(loops_1c(4, ";)"), "loops_1c")
     lp(loops_2(), "loops_2")
     lp(loops_3(), "loops_3")
     lp(loops_4(), "loops_4")

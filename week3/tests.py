@@ -1,4 +1,9 @@
 # -*- coding: UTF-8 -*-
+
+### RUN setup.py BEFORE RUNNING TEST!!!
+### RUN setup.py BEFORE RUNNING TEST!!!
+### RUN setup.py BEFORE RUNNING TEST!!!
+
 """Run the tests.
 
 This file tests your code. It'll check that the work in each

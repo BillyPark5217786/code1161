@@ -68,8 +68,6 @@ def minitest(f, args, expected):
                           expected=expected))
     return result == expected
 
-    return 
-
 if __name__ == "__main__":
     minitest(add_5, [1], 6)
     minitest(add_5, [6], 11)
