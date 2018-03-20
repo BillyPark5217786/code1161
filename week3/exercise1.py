@@ -13,11 +13,11 @@ def loop_ranger(start, stop=None, step=1):
     Do this using any method apart from just using range()
     """
 
-    i = start
+    start
     a_list = []
-    while (i < stop):
-         a_list.append(i)
-         i += step
+    while (start < stop):
+         a_list.append(start)
+         start += step
     return a_list
 
 
@@ -26,8 +26,8 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    range(start, stop, step)
-    return 
+    for t in range(start, stop):
+        return 
 
 
 def two_step_ranger(start, stop):
