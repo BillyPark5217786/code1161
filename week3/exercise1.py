@@ -13,7 +13,6 @@ def loop_ranger(start, stop=None, step=1):
     Do this using any method apart from just using range()
     """
 
-    start
     a_list = []
     while (start < stop):
          a_list.append(start)
@@ -26,8 +25,7 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    for t in range(start, stop):
-        return 
+    return range(start, stop, step)
 
 
 def two_step_ranger(start, stop):
@@ -36,7 +34,12 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """     
-    
+    step = 2
+    a_list = []
+    while (start < stop):
+         a_list.append(start)
+         start += step
+    return a_list
 
 
 def stubborn_asker(low, high):
@@ -45,8 +48,18 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    pass
-
+    message = "give me a number between {low} and {high}:".format(low=low,high=high)
+    while True:
+        input_number = int(input(message))
+        if input(low < input_number < high):
+            print("That's the number I'm looking for")
+        elif input(low < input_number < high):
+            print("Nope, Lower")
+        elif input(low < input_number < high):
+            print("Nup, Higher")
+        else:
+            return input_number
+   
 
 def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
@@ -55,8 +68,37 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    #First attempt
+    """question = "Give me a number and no one gets hurt!"
+    no = "That's not a number! Give me a number! Give me a number or I hurt this baby. Where did the baby come from? I don't know. So give me a number!"
+    while True:
+        try:
+            input_a_number = int(input(question))
+        except ValueError:
+            print(no)
+            continue
+        else:
+            break
+    for x in int():
+        print(no)
+    else:
+        for i in int():
+            return "Finally a number!"
+    """
+    
+    #Second Attempt/ Doesn't work
+    """a_number = random.randint(0, sys.maxin)
+    turtle = True
+    while True:
+        question = int(input("Give me a number and no one gets hurt!: "))
+        if question == a_number:
+            print("Finally a number! {}".format(question))
+        elif question != a_number:
+            print("That's not a number! Give me a number! Give me a number or I hurt this baby. Where did the baby come from? I don't know. So give me a number! ")
+    return "Finally a Number!"
+    """
 
+    pass
 
 def super_asker(low, high):
     """Robust asking function.
@@ -64,7 +106,17 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    range_of_popes = range(low, high)
+    pope = False
+    while not pope:
+        guess_number = int(input("Guess a number between {low} and {high}".format(low=low,high=high)))
+        print("You guessed {}:".format(guess_number))
+        if guess_number == range_of_popes:
+            print("That's how many popes there are".format(guess_number))
+            pope = True
+        elif guess_number != range_of_popes:
+            print ("That's not a number")
+    return "Hooray"
 
 
 if __name__ == "__main__":
