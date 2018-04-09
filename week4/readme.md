@@ -1,3 +1,4 @@
+
 This week was a difficult task to complete. 
 What I;m finding with attempting most exercises is that it is mostly trial and error. Given all the time in the world I'm sure I could compplete the exercises. But the idead of the exam coming up makes me worried that I will not be able to complete a significant portion of it.
 
