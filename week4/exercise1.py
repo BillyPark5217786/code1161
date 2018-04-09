@@ -35,20 +35,18 @@ def get_some_details():
          dictionaries.
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
-
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    return {"lastName":         data['results'][0]['name']['last'],
+            "password":         data['results'][0]['login']['password'],
+            "postcodePlusID":   int(data['results'][0]['id']['value']) + int(data['results'][0]['location']['postcode'])
             }
-
-
+    
 
 def wordy_pyramid():
     """Make a pyramid out of real words.
 
     There is a random word generator here:
-    http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1
+    http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=3&maxLength=3&limit=1
     The arguments that the generator takes is the minLength and maxLength of the word
     as well as the limit, which is the the number of words. 
     Visit the above link as an example.
@@ -79,8 +77,12 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
+    '''url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=3&maxLength=3&limit=1"
+    r = requests.get(url)
+    pyramid_json = json.loads(r.text)
+    url.append(?minlength=(+2))
+    #pyramid_json[0]['word']'''
     pass
-
 
 def wunderground():
     """Find the weather station for Sydney.
@@ -93,8 +95,12 @@ def wunderground():
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
+    #http://www.api.wunderground.com/api/a3d785b1b85a1849/conditions/q/AU/Sydney.json
+    #API Url
+    """http://api.wunderground.com/api/a3d785b1b85a1849/conditions/q/AU/Sydney.json"""
+    
     base = "http://api.wunderground.com/api/"
-    api_key = "YOUR KEY - REGISTER TO GET ONE"
+    api_key = "a3d785b1b85a1849"
     country = "AU"
     city = "Sydney"
     template = "{base}/{key}/conditions/q/{country}/{city}.json"
@@ -103,10 +109,11 @@ def wunderground():
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
 
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    return {"state":           obs['observation_location']['state'],
+            "latitude":        obs['observation_location']['latitude'],
+            "longitude":       obs['observation_location']['longitude'],
+            "local_tz_offset": obs['local_tz_offset']
+            }
 
 
 def diarist():
