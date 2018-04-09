@@ -6,6 +6,8 @@ import os
 import requests
 import inspect
 import sys
+# I addeed import re so that the search function in diarest would work
+import re
 
 # Handy constants
 LOCAL = os.path.dirname(os.path.realpath(__file__))  # the context of this file
@@ -77,12 +79,40 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    '''url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=3&maxLength=3&limit=1"
-    r = requests.get(url)
-    pyramid_json = json.loads(r.text)
-    url.append(?minlength=(+2))
-    #pyramid_json[0]['word']'''
-    pass
+
+    """url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
+    #r = requests.get(url)
+    #pyramid_json = json.loads(r.text)
+
+    #pyramid_json[0]['word']
+
+    #url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
+    words_of_power = []
+    for t in range(3, 21, 2):
+        r = requests.get(url)
+        tea = url.append(minLength=5, maxLength=5)
+        random_word = r.json()[0]['word']
+        words_of_power.append(random_word)
+        
+    return words_of_power"""
+
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
+    pyramid = []
+    for x in range(3,21,2):
+        r = requests.get(url)
+        url.format(x)
+        word = r.json()[0]['word']
+        pyramid.append(word)
+        print(word)
+
+    for x in range(20,3,-2):
+        r = requests.get(url)
+        url.format(str(x))
+        word = r.json()[0]['word']
+        pyramid.append(word)
+        print(word)
+
+    return pyramid
 
 def wunderground():
     """Find the weather station for Sydney.
@@ -129,8 +159,29 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
 
+    #This process automatically counts the number of times "M10 P1" so if the file was updated it would output the correct number of times appearing.
+    gcode_data = open(LOCAL + "/Trispokedovetiles(laser).gcode", 'r').read()
+    number_count = str('M10 P1')
+    final_number = gcode_data.count(number_count)
+    lets_see = str(final_number)
+    file_path = open(LOCAL + "/lasers.pew", "w")
+    file_path.write(lets_see)
+    file_path.close()
+    
+    #Attempts at trying to pull the number of times M10 is repeated from gcode file.
+    """with open(LOCAL + "/Trispokedovetiles(laser).gcode") as f:
+        #contents = f.read()
+        #count = contents.count('M10 P1')"""
+    """"from collections import Counter"""
+    
+    #This is the process manually counting the ammount of times "M10 P1 appears"
+    """file_path = open(LOCAL + "/lasers.pew", "w")
+    file_path.write('6')
+    file_path.close()"""
+    
+
+       
 
 if __name__ == "__main__":
     functions = [obj for name,obj in inspect.getmembers(sys.modules[__name__]) if (inspect.isfunction(obj))]
