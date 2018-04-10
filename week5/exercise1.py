@@ -15,6 +15,7 @@ are on top of it, take these comments out. Others won't have comments and
 you'll need to figure out for yourself what to do.
 """
 
+import math
 
 # This is a terrible function. The rest of the functions in this file do a
 # much better job of what it's trying to do. Once you've has a little look,
@@ -49,7 +50,21 @@ def do_bunch_of_bad_things():
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    pass
+    list_message_count = []
+    if start > stop:
+        count = start
+        while count > stop:
+            count = count - 1
+            strings_print = message + " " = str(count)
+            list_message_count.append(strings_print)
+    else:
+        count = stop
+        while count > start:
+        count = count - 1
+            strings_print = message + " " = str(count)
+            list_message_count.append(strings_print)
+    list_message_count.append(completion_message)
+    return list_message_count
 
 
 # TRIANGLES

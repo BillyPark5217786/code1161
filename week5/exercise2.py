@@ -6,6 +6,7 @@ Exercises and examples to illustrate recursion.
 
 
 import turtle
+import math
 
 
 def italian_dinner(axiom="tomatoes", guard=6):
