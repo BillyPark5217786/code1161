@@ -4,9 +4,6 @@
 Modify each function until the tests pass.
 """
 
-
-
-
 def loop_ranger(start, stop=None, step=1):
     """Return a list of numbers between start and stop in steps of step.
 
@@ -27,6 +24,8 @@ def lone_ranger(start, stop, step):
     """
     return range(start, stop, step)
 
+    #Ishaans Example
+    #return list(range(start, stop, step))
 
 def two_step_ranger(start, stop):
     """Make a range that steps by 2.
@@ -40,6 +39,9 @@ def two_step_ranger(start, stop):
          a_list.append(start)
          start += step
     return a_list
+
+    #Ishaans Example
+    #return lone_ranger(start, stop, 2)
 
 
 def stubborn_asker(low, high):
@@ -59,6 +61,17 @@ def stubborn_asker(low, high):
             print("Nup, Higher")
         else:
             return input_number
+
+    #Ishaans Example
+    """    answered = False
+    while answered is False:
+        num = input("Enter a number between {} and {}: ".format(low, high))
+        if int(num) > low and int(num) < high:
+            answered = True
+            break
+        print(str(answered))
+    return num
+    """
    
 
 def not_number_rejector(message):
@@ -68,6 +81,20 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
+    #Ishaans Example
+    answered = False
+    while not answered:
+        answered = True
+        inputVar = input(message)
+        try:
+            inputVar = int(inputVar)
+        except Exception:
+            try:
+                inputVar = float(inputVar)
+            except Exception:
+                answered = False
+    return inputVar
+
     #First attempt
     """question = "Give me a number and no one gets hurt!"
     no = "That's not a number! Give me a number! Give me a number or I hurt this baby. Where did the baby come from? I don't know. So give me a number!"
@@ -98,8 +125,6 @@ def not_number_rejector(message):
     return "Finally a Number!"
     """
 
-    pass
-
 def super_asker(low, high):
     """Robust asking function.
 
@@ -118,6 +143,16 @@ def super_asker(low, high):
             print ("That's not a number")
     return "Hooray"
 
+    #IShaans Example
+    """answered = False
+    while answered is False:
+        num = not_number_rejector("Enter a number between {} and {}: ".format(low, high))
+        if int(num) > low and int(num) < high:
+            answered = True
+            break
+        print(str(answered))
+    return num
+    """
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.

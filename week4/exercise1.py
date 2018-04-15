@@ -79,24 +79,19 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
+    #Ishaans Example
+    pyramid1 = []
+    pyramid2 = []
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+    for length in range(3, 21):
+        if length % 2 == 1:
+            pyramid1.append(requests.get(url.format(length, length)).json()[0]['word'])
+        else:
+            pyramid2 = [requests.get(url.format(length, length)).json()[0]['word']] + pyramid2
+
+    return pyramid1 + pyramid2
 
     """url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
-    #r = requests.get(url)
-    #pyramid_json = json.loads(r.text)
-
-    #pyramid_json[0]['word']
-
-    #url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
-    words_of_power = []
-    for t in range(3, 21, 2):
-        r = requests.get(url)
-        tea = url.append(minLength=5, maxLength=5)
-        random_word = r.json()[0]['word']
-        words_of_power.append(random_word)
-        
-    return words_of_power"""
-
-    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
     pyramid = []
     for x in range(3,21,2):
         r = requests.get(url)
@@ -113,6 +108,7 @@ def wordy_pyramid():
         print(word)
 
     return pyramid
+    """
 
 def wunderground():
     """Find the weather station for Sydney.
@@ -145,6 +141,16 @@ def wunderground():
             "local_tz_offset": obs['local_tz_offset']
             }
 
+    #Ishaans Example
+    """dict1 = {"state":           obs["display_location"]["state"],
+             "latitude":        obs["display_location"]["latitude"],
+             "longitude":       obs["display_location"]["longitude"],
+             "local_tz_offset": obs["local_tz_offset"]}
+    print(str(dict1))
+    return dict1
+    """
+
+
 
 def diarist():
     """Read gcode and find facts about it.
@@ -168,6 +174,21 @@ def diarist():
     file_path = open(LOCAL + "/lasers.pew", "w")
     file_path.write(lets_see)
     file_path.close()
+
+    #Ishaans Example
+    """count = 0
+    laser_file = 'Trispokedovetiles(laser).gcode'
+    with open(laser_file, 'r') as laser:
+        commands = laser.read().split('\n')
+        for command in commands:
+            if "M10 P1" in command:
+                count += 1
+
+    pew_file = 'lasers.pew'
+    with open(pew_file, 'w') as pew:
+        pew.write(str(count))
+    return count
+    """
     
     #Attempts at trying to pull the number of times M10 is repeated from gcode file.
     """with open(LOCAL + "/Trispokedovetiles(laser).gcode") as f:

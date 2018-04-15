@@ -12,6 +12,9 @@ def is_odd(a_number):
     else: 
         return a_number == False
 
+    #Ishaans Example
+    #return a_number % 2 == 1
+
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -34,6 +37,14 @@ def fix_it(moves=True, should_move=True):
             return "WD-40"
         else:
             return "No Problem"
+
+    #Ishaans Example
+    #    if moves == should_move:
+    #   return "No Problem"
+    #elif moves:
+    #   return "Duct Tape"
+    #else:
+    #   return "WD-40"
     
 
 def loops_1a():
@@ -63,6 +74,9 @@ def loops_1c(number_of_items=5, symbol="#"):
         a_list.append(symbol)
     return a_list
 
+    #Ishaans Example
+    #return [symbol] * number_of_items
+
         
 
 def loops_2():
@@ -90,6 +104,9 @@ def loops_2():
             b_list.append('*')
         a_list.append(b_list)
     return a_list
+
+    #Ishaans Example
+    #return [['*'] * 10] * 10
 
 def loops_3():
     """Make a rising block of numbers.
@@ -120,6 +137,9 @@ def loops_3():
         a_list.append(b_list)
     return a_list
 
+    #Ishaan's example
+    #return [[str(x)]* 10 for x in range(10)]
+
 
 def loops_4():
     """Make a block of numbers that rises left to right.
@@ -148,6 +168,8 @@ def loops_4():
     #I don't know what I've done, I seems to be multiplying by 100 for some reason.
     #Fixed it, it was an indentaion error. So lucky me.
 
+    #Ishaans Example
+    #return [[str(x) for x in range(10)]] * 10
 
 def loops_5():
     """Make the coordinates of the block.
@@ -179,6 +201,19 @@ def loops_5():
         column.append(row)
     return column
 
+    #Ishaans Example
+        # long answer
+    """return_list = []
+    for x in range(10):
+        mini_list = []
+        for y in range(5):
+            mini_list.append("(i{}, j{})".format(x, y))
+        return_list.append(mini_list)
+    # return return_list # -- uncomment this and check the value of return list 
+    
+    # short ans
+    return [[f"(i{x}, j{y})" for y in range(5)] for x in range(10)]
+    """
 
 def loops_6():
     """Make a wedge of numbers.
@@ -207,6 +242,16 @@ def loops_6():
             list_desec[i].append(str(j))
     return list_desec
     
+    #Ishaans Example
+    """    wedgeList = []
+    for x in range(10):
+        tempLine = []
+        for y in range(x+1):
+            tempLine.append(str(y))
+        wedgeList.append(tempLine)
+    return wedgeList
+    """
+
 def loops_7():
     """Make a pyramid.
 
@@ -238,7 +283,17 @@ def loops_7():
                 row.append(" ")
         column.append(row)
     return column
-
+    
+    #Ishaans Example
+    """    middle_index = 4
+    return_list = []
+    for x in range(5):
+        element_list = [' '] * 9
+        for i in range(middle_index-x, middle_index+x+1):
+            element_list[i] = '*'
+        return_list.append(element_list)
+    return return_list
+    """
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
