@@ -6,8 +6,7 @@ import os
 import requests
 import inspect
 import sys
-# I addeed import re so that the search function in diarest would work
-import re
+import re # I addeed import re so that the search function in diarest would work
 
 # Handy constants
 LOCAL = os.path.dirname(os.path.realpath(__file__))  # the context of this file
@@ -142,13 +141,13 @@ def wunderground():
             }
 
     #Ishaans Example
-    """dict1 = {"state":           obs["display_location"]["state"],
-             "latitude":        obs["display_location"]["latitude"],
-             "longitude":       obs["display_location"]["longitude"],
-             "local_tz_offset": obs["local_tz_offset"]}
-    print(str(dict1))
-    return dict1
-    """
+    # dict1 = {"state":           obs["display_location"]["state"],
+    #          "latitude":        obs["display_location"]["latitude"],
+    #          "longitude":       obs["display_location"]["longitude"],
+    #          "local_tz_offset": obs["local_tz_offset"]}
+    # print(str(dict1))
+    # return dict1
+
 
 
 
@@ -176,19 +175,19 @@ def diarist():
     file_path.close()
 
     #Ishaans Example
-    """count = 0
-    laser_file = 'Trispokedovetiles(laser).gcode'
-    with open(laser_file, 'r') as laser:
-        commands = laser.read().split('\n')
-        for command in commands:
-            if "M10 P1" in command:
-                count += 1
+    # count = 0
+    # laser_file = 'Trispokedovetiles(laser).gcode'
+    # with open(laser_file, 'r') as laser:
+    #     commands = laser.read().split('\n')
+    #     for command in commands:
+    #         if "M10 P1" in command:
+    #             count += 1
 
-    pew_file = 'lasers.pew'
-    with open(pew_file, 'w') as pew:
-        pew.write(str(count))
-    return count
-    """
+    # pew_file = 'lasers.pew'
+    # with open(pew_file, 'w') as pew:
+    #     pew.write(str(count))
+    # return count
+    
     
     #Attempts at trying to pull the number of times M10 is repeated from gcode file.
     """with open(LOCAL + "/Trispokedovetiles(laser).gcode") as f:

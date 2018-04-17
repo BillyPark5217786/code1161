@@ -50,20 +50,20 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    message = "give me a number between {low} and {high}:".format(low=low,high=high)
-    while True:
-        input_number = int(input(message))
-        if input(low < input_number < high):
-            print("That's the number I'm looking for")
-        elif input(low < input_number < high):
-            print("Nope, Lower")
-        elif input(low < input_number < high):
-            print("Nup, Higher")
-        else:
-            return input_number
+    # message = "give me a number between {low} and {high}:".format(low=low,high=high)
+    # while True:
+    #     input_number = int(input(message))
+    #     if input(low < input_number < high):
+    #         print("That's the number I'm looking for")
+    #     elif input(low < input_number < high):
+    #         print("Nope, Lower")
+    #     elif input(low < input_number < high):
+    #         print("Nup, Higher")
+    #     else:
+    #         return input_number
 
     #Ishaans Example
-    """    answered = False
+    answered = False
     while answered is False:
         num = input("Enter a number between {} and {}: ".format(low, high))
         if int(num) > low and int(num) < high:
@@ -71,7 +71,7 @@ def stubborn_asker(low, high):
             break
         print(str(answered))
     return num
-    """
+    
    
 
 def not_number_rejector(message):
@@ -131,20 +131,20 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    range_of_popes = range(low, high)
-    pope = False
-    while not pope:
-        guess_number = int(input("Guess a number between {low} and {high}".format(low=low,high=high)))
-        print("You guessed {}:".format(guess_number))
-        if guess_number == range_of_popes:
-            print("That's how many popes there are".format(guess_number))
-            pope = True
-        elif guess_number != range_of_popes:
-            print ("That's not a number")
-    return "Hooray"
+    # range_of_popes = range(low, high)
+    # pope = False
+    # while not pope:
+    #     guess_number = int(input("Guess a number between {low} and {high}".format(low=low,high=high)))
+    #     print("You guessed {}:".format(guess_number))
+    #     if guess_number == range_of_popes:
+    #         print("That's how many popes there are".format(guess_number))
+    #         pope = True
+    #     elif guess_number != range_of_popes:
+    #         print ("That's not a number")
+    # return "Hooray"
 
     #IShaans Example
-    """answered = False
+    answered = False
     while answered is False:
         num = not_number_rejector("Enter a number between {} and {}: ".format(low, high))
         if int(num) > low and int(num) < high:
@@ -152,7 +152,7 @@ def super_asker(low, high):
             break
         print(str(answered))
     return num
-    """
+    
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.

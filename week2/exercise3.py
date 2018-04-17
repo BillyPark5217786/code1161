@@ -285,7 +285,7 @@ def loops_7():
     return column
     
     #Ishaans Example
-    """    middle_index = 4
+    middle_index = 4
     return_list = []
     for x in range(5):
         element_list = [' '] * 9
@@ -293,7 +293,7 @@ def loops_7():
             element_list[i] = '*'
         return_list.append(element_list)
     return return_list
-    """
+
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
