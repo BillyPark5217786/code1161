@@ -17,7 +17,7 @@ def greet(name="Towering Timmy"):
     return a string of "Hello" and the name argument.
     E.g. if given as "Towering Timmy" it should return "Hello Towering Timmy"
     """
-    pass
+    return "Hello " + name
 
 
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
@@ -26,7 +26,8 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 5
     """
-    pass
+    return input_list.count(3)
+    
 
 
 def fizz_buzz():
@@ -43,9 +44,29 @@ def fizz_buzz():
     Return a list that has an integer if the number isn't special, and a string
     if it is. E.g. [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, ...]
     """
-    fizzBuzzList = []
-    # your code here
-    return fizzBuzzList
+    # fizzBuzzList = []
+    # for i in range(1,101):
+    #     if i % 5 == 0 and i % 3 == 0:
+    #         print('FizzBuzz')
+    #     elif i % 3 == 0:
+    #         print ("Fizz")
+    #     elif i % 5 == 0:
+    #         print('Buzz')
+    #     else:
+    #         return i
+
+    # for num in xrange(1,101):
+    #     if num % 5 == 0 and num % 3 == 0:
+    #         print "FizzBuzz"
+    #     elif num % 3 == 0:   
+    #         print "Fizz"
+    #     elif num % 5 == 0:
+    #         print "Buzz"
+    #     else:
+    #         print num
+
+    pass
+
 
 
 def put_behind_bars(input_string="very naughty boy"):
@@ -57,7 +78,8 @@ def put_behind_bars(input_string="very naughty boy"):
     TIP: conside using the 'join' method in Python.
     TIP: make sure that you have a pipe on both ends of the string.
     """
-    pass
+    pipe = "|" 
+    return ("|" + pipe.join(input_string) + "|")
 
 
 def pet_filter(letter="a"):
@@ -70,7 +92,8 @@ def pet_filter(letter="a"):
             "bali cattle", "gayal", "turkey", "goldfish", "rabbit", "koi",
             "canary", "society finch", "fancy mouse", "siamese fighting fish",
             "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"]
-    pass
+    a_letter = [i for i in pets if letter in i]
+    return a_letter
 
 
 def best_letter_for_pets():
@@ -79,9 +102,20 @@ def best_letter_for_pets():
     Reusing the pet_filter, find the letter that gives the longest list of pets
     TIP: return just a letter, not the list of animals.
     """
+    from collections import Counter
     import string
+    pets = ["dog", "goat", "pig", "sheep", "cattle", "zebu", "cat", "chicken",
+            "guinea pig", "donkey", "duck", "water buffalo",
+            "western honey bee", "dromedary camel", "horse", "silkmoth",
+            "pigeon", "goose", "yak", "bactrian camel", "llama", "alpaca",
+            "guineafowl", "ferret", "muscovy duck", "barbary dove",
+            "bali cattle", "gayal", "turkey", "goldfish", "rabbit", "koi",
+            "canary", "society finch", "fancy mouse", "siamese fighting fish",
+            "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"]
+    the_alphabet = str(pets)
     the_alphabet = string.ascii_lowercase
-    pass
+    return Counter(the_alphabet).most_common(1)
+
 
 
 def make_filler_text_dictionary():
